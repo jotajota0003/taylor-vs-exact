@@ -1,4 +1,4 @@
-# Taylor vs Error
+# Taylor vs Exact
 
 A MATLAB tool for visualizing and comparing Taylor series approximations against exact function values, with comprehensive error analysis.
 
