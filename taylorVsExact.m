@@ -1,5 +1,48 @@
 function taylorVsExact()
-% This function plots a graph of the provided function with the 
+% taylorVsExact Compares Taylor series approximation with exact function values
+%
+%   taylorVsExact() interactively prompts the user for a mathematical function,
+%   the number of Taylor series terms, and an approximation point. It then
+%   generates two plots: one comparing the Taylor series approximation to the
+%   exact function, and another showing the percentage error.
+%
+%   Interactive Inputs:
+%       func - A mathematical function as a string (e.g., 'sin(x)', 'exp(-x)')
+%              Special cases: use 'log(x)' for ln(x), 'log10(x)' for log base 10
+%       n    - Number of terms for the Taylor series expansion (positive integer)
+%       x0   - The center point for the Taylor series expansion (real number)
+%
+%   Outputs:
+%       Two figures are generated:
+%       1. 'TaylorVsExact' - Plots Taylor approximation (red dashed) vs exact
+%                            function (black solid) over the interval [0, 6]
+%       2. 'Error'         - Plots the percentage error between approximation
+%                            and exact values
+%
+%   Examples:
+%       taylorVsExact()
+%       % Then enter at prompts:
+%       %   Function: sin(x)
+%       %   Number of terms: 5
+%       %   Approximation point: 0
+%
+%   Mathematical Background:
+%       The Taylor series expansion of f(x) around x0 is:
+%       f(x) ≈ f(x0) + f'(x0)(x-x0) + f''(x0)(x-x0)^2/2! + ... + f^(n)(x0)(x-x0)^n/n!
+%
+%   Error Calculation:
+%       MAE (Mean Absolute Error) = |exact - approximation|
+%       TRE (True Relative Error) = (exact - approximation) / exact * 100%
+%
+%   Requirements:
+%       - Symbolic Math Toolbox
+%       - Function must be differentiable n times at x0
+%
+%   See also: TAYLOR, DIFF, SYM, SUBS
+%
+%   Author: Rebanta-Gupta
+%   Repository: https://github.com/Rebanta-Gupta/taylor-vs-error
+
 func = input("Please enter an acceptable function (ex. sin(x), exp(-x)), also for ln(x) use log(x) and for normal log(x) use log10(x): ", "s");
 n = input("Please enter the Number of Terms for the Taylor Series: ");
 x0 = input("Please enter Approximate Point, x0: ");
@@ -61,4 +104,5 @@ hold off
             y_vals(k) = sum(taylor_pts, "all");
         end
     end
+
 end
